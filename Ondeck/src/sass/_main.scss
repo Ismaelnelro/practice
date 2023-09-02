@@ -1,0 +1,121 @@
+@use'variables';
+
+main {
+  display: grid;
+  grid-column: 1/6;
+  grid-row: 2/3;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  justify-items: space-between;
+  gap: .5rem;
+
+
+  .section__container {
+    display: grid;
+    grid-column: span 8;
+    gap: 1rem;
+
+    &__title {
+      width: 100%;
+      font-size: 3.3rem;
+
+      span {
+        color: variables.$color_amarillo;
+      }
+    }
+
+    &__subtitle {
+      font-size: .85rem;
+      color: variables.$color_gris_oscuro;
+    }
+
+    button {
+      width: 6.5rem;
+      height: 2.5rem;
+      border-radius: .199rem;
+      border: none;
+      color: variables.$background;
+      background-color: variables.$color_verde;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    &__reviews {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      p {
+        color: variables.$color_gris_oscuro;
+      }
+
+      img {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+  }
+
+  aside {
+    display: grid;
+    grid-column-start: 9;
+    grid-column-end: 13;
+    justify-items: end;
+  }
+
+
+  @media screen and (766px < width < 1023px) {
+    aside {
+      display: none;
+    }
+
+    .section__container {
+      justify-items: center;
+      grid-column: span 12;
+      text-align: center;
+      
+      &__title {
+        width: 75%;
+      }
+
+      &__subtitle {
+        width: 70%;
+      }
+    }
+  }
+
+
+
+  @media screen and (300px < width < 768px) {
+    aside {
+      display: none;
+    }
+
+    .section__container {
+      justify-items: start;
+      grid-column: span 12;
+
+      &__title {
+        text-align: start;
+        font-size: 2rem;
+      }
+
+      &__reviews {
+        p {
+          font-size: .8rem;
+        }
+  
+        img {
+          width:  20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+
+  
+
+
+}

@@ -1,0 +1,44 @@
+@use'variables';
+
+.footer__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column: 1/6;
+  justify-items: center;
+  align-items: center;
+
+  &__title {
+    grid-column: span 6;
+    color: variables.$color_gris_oscuro;
+  }
+
+  &__companies {
+    grid-column: span 6;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+    img {
+      width: 20%
+    }
+  }
+
+
+
+  @media screen and (300px < width < 768px) {
+    gap: 2rem;
+    &__title {
+      font-size: .9rem;
+    }
+
+    &__companies {
+      display: flex;
+      flex-wrap: wrap;
+
+      img {
+        width: 155px
+      }
+    }
+  }
+}
